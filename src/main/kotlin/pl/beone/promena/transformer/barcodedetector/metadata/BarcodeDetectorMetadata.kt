@@ -3,11 +3,11 @@ package pl.beone.promena.transformer.barcodedetector.metadata
 import pl.beone.promena.transformer.barcodedetector.metadata.BarcodeDetectorConstants.TRANSFORMER_NAME
 import pl.beone.promena.transformer.contract.model.Metadata
 
-class BarcodeDetectorMetadata(
+data class BarcodeDetectorMetadata(
     internal val metadata: Metadata
 ) : Metadata by metadata {
 
-    class Barcode(
+    data class Barcode(
         internal val metadata: Metadata
     ) : Metadata by metadata {
 
@@ -18,8 +18,8 @@ class BarcodeDetectorMetadata(
             const val CONTOUR_VERTICES_ON_PAGE = "contourVerticesOnPage"
         }
 
-        class Vertex(
-            metadata: Metadata
+        data class Vertex(
+            internal val metadata: Metadata
         ) : Metadata by metadata {
 
             companion object {
@@ -44,9 +44,9 @@ class BarcodeDetectorMetadata(
             get(PAGE, Int::class.java)
 
         fun getContourVerticesOnPage(): List<Vertex> =
-            getListOrDefault(CONTOUR_VERTICES_ON_PAGE, Metadata::class.java, emptyList()).map(::Vertex)
+            getListOrDefault(CONTOUR_VERTICES_ON_PAGE, Vertex::class.java, emptyList())
     }
 
     fun getBarcodes(): List<Barcode> =
-        getList(TRANSFORMER_NAME, Metadata::class.java).map(::Barcode)
+        getList(TRANSFORMER_NAME, Barcode::class.java)
 }
