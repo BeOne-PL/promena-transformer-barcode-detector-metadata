@@ -43,11 +43,11 @@ class BarcodeDetectorMetadataDslTest {
                     getPage() shouldBe barcodePage
                     with(getContourVerticesOnPage()) {
                         this shouldHaveSize 2
-                        with(get(0)) {
+                        with(this[0]) {
                             getX() shouldBe barcodeVertexX
                             getY() shouldBe barcodeVertexY
                         }
-                        with(get(1)) {
+                        with(this[1]) {
                             getX() shouldBe barcodeVertex2X
                             getY() shouldBe barcodeVertex2Y
                         }
@@ -60,11 +60,11 @@ class BarcodeDetectorMetadataDslTest {
                     shouldThrowExactly<NoSuchElementException> { getPage() }
                     with(getContourVerticesOnPage()) {
                         this shouldHaveSize 2
-                        with(get(0)) {
+                        with(this[0]) {
                             getX() shouldBe barcodeVertexX
                             getY() shouldBe barcodeVertexY
                         }
-                        with(get(1)) {
+                        with(this[1]) {
                             getX() shouldBe barcodeVertex2X
                             getY() shouldBe barcodeVertex2Y
                         }
@@ -89,13 +89,13 @@ class BarcodeDetectorMetadataDslTest {
             ).getBarcodes()
         ) {
             this shouldHaveSize 1
-            with(get(0)) {
+            with(this[0]) {
                 shouldThrowExactly<NoSuchElementException> { getText() }
                 shouldThrowExactly<NoSuchElementException> { getFormat() }
                 shouldThrowExactly<NoSuchElementException> { getPage() }
                 with(getContourVerticesOnPage()) {
                     this shouldHaveSize 1
-                    with(get(0)) {
+                    with(this[0]) {
                         getX() shouldBe barcode2VertexX
                         getY() shouldBe barcode2VertexY
                     }
