@@ -1,5 +1,5 @@
 # Promena Transformer - `barcode detector` metadata
-This repository contains common metadata for `barcode detector` transformers. It's built on classes from [`promena-transformer`](https://gitlab.office.beone.pl/promena/promena/tree/master/base/promena-transformer) so you don't need additional dependencies in case of serialization.
+This repository contains common metadata for `barcode detector` transformers. It's built on classes from [`promena-transformer`](https://github.com/BeOne-PL/promena/tree/master/base/promena-transformer) so you don't need additional dependencies in case of serialization.
 
 Metadata has the following elements ([`BarcodeDetectorMetadataConstants`](./src/main/kotlin/pl/beone/promena/transformer/barcodedetector/metadata/BarcodeDetectorMetadataConstants.kt) contains the list of the constants):
 * `barcode`, `List<Metadata>`, mandatory
